@@ -165,16 +165,14 @@ public class TicTacToe {
     }
 
     private static boolean checkWin(char symbol) {
-        if(MAP[0][0] == symbol && MAP[0][1] == symbol && MAP[0][2] == symbol) return true;
-        if(MAP[1][0] == symbol && MAP[1][1] == symbol && MAP[1][2] == symbol) return true;
-        if(MAP[2][0] == symbol && MAP[2][1] == symbol && MAP[2][2] == symbol) return true;
-
-        if(MAP[0][0] == symbol && MAP[1][0] == symbol && MAP[2][0] == symbol) return true;
-        if(MAP[0][1] == symbol && MAP[1][1] == symbol && MAP[2][1] == symbol) return true;
-        if(MAP[0][2] == symbol && MAP[1][2] == symbol && MAP[2][2] == symbol) return true;
-
-        if(MAP[0][0] == symbol && MAP[1][1] == symbol && MAP[2][2] == symbol) return true;
-        if(MAP[2][0] == symbol && MAP[1][1] == symbol && MAP[0][2] == symbol) return true;
+        for (int i = 0; i < 3; i++) {
+            if ((MAP[i][0] == symbol && MAP[i][1] == symbol && MAP[i][2] == symbol) ||
+                    (MAP[0][i] == symbol && MAP[1][i] == symbol && MAP[2][i] == symbol))
+                return true;
+            if ((MAP[0][0] == symbol && MAP[1][1] == symbol && MAP[2][2] == symbol) ||
+                    (MAP[2][0] == symbol && MAP[1][1] == symbol && MAP[0][2] == symbol))
+                return true;
+        }
 
         return false;
     }
